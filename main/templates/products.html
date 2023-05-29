@@ -1,0 +1,144 @@
+{% extends 'template.html' %}
+
+{% block title %}
+{% for item in products %}
+    {% if url == item.slug %}
+    <title>{{item.title}}</title>
+    {% endif %}
+{% endfor %}
+{% endblock %}
+{% block metadescription %}
+{% for item in products %}
+    {% if url == item.slug %}
+    <meta name="description" content="{{item.meta_description}}">
+    <meta name="description" content="{{item.meta_description_kaz}}">
+    {% endif %}
+{% endfor %}
+{% endblock %}
+{% block logo %}
+    {% for item in settings %}
+        {% if item.is_published %}
+            <a href="/"><img src="{{ item.company_logo.url }}" alt=""></a>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
+                
+{% block leftbarmenu %}
+    <ul>
+        {% for sub in sub_menu_category %}
+            {% for item in sub_menu %}
+                {% if sub.id == item.category_id %}
+                    <li class="left-main-nav"><a href="">{{ sub.name }}</a></li>
+                    <li><a href="{{ item.slug }}">{{ item.name }}</a></li>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block headmenu %}
+    {% for item in main_menu %}
+        {% if item.slug == 'glavnaya' %}
+            <li><a href="/">{{ item.name }}</a></li>
+        {% else %}
+            <li><a href="{{ item.slug }}">{{ item.name }}</a></li>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
+{% block address %}
+{% for item in settings %}
+    {% if item.is_published %}
+        {{ item.address }}
+    {% endif %}
+{% endfor %}
+{% endblock %}
+{% block email %}
+    {% for item in settings %}
+        {% if item.is_published %}
+            <a href="mailto:{{ item.e_address }}"><i class="far fa-envelope"></i> {{ item.e_address }}</a>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
+{% block work_time %}
+    {% for item in settings %}
+        {{ item.work_time }}
+    {% endfor %}
+{% endblock %}
+{% block phones %}
+{% for item in settings %}
+    <a href="tel:{{ item.phone }}"><i class="fas fa-phone"></i> {{ item.phone }}</a>
+    <a href="tel:{{ item.phone_1 }}"><i class="fas fa-phone"></i> {{ item.phone_1 }}</a>
+        
+{% endfor %}
+
+{% endblock %}
+{% block phones_all %}
+    {% for item in settings %}
+        {% if item.is_published %}
+            <li><a href="tel:{{ item.phone }}"><i class="fas fa-phone"></i> {{ item.phone }}</a></li>
+            <li><a href="tel:{{ item.phone_1 }}"><i class="fas fa-phone"></i> {{ item.phone_1 }}</a></li>
+            {% if item.phone_2 %}
+            <li><a href="tel:{{ item.phone_2 }}"><i class="fas fa-phone"></i> {{ item.phone_2 }}</a></li>
+            {% endif %}
+            {% if item.phone_3 %}
+            <li><a href="tel:{{ item.phone_3 }}"><i class="fas fa-phone"></i> {{ item.phone_3 }}</a></li>
+            {% endif %}
+            <li><a href="mailto:{{ item.e_address }}"><i class="far fa-envelope"></i> {{ item.e_address }}</a></li>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
+
+{% block companyname %}
+{% for item in products %}
+    {% if url == item.slug %}
+        {{item.name_description|safe}}
+    {% endif %}
+{% endfor %}
+{% endblock %}
+
+{% block promocategory %}
+<div class="promo">
+    <div class="flex flex-wrap flex-between main-content-container">
+        <a href="#" class="main-content-category">
+            <img src="media/static/star_rIR2dQD.png" class="main-content-category-star" alt="">
+            <img src="media/static/002.jpg" class="main-content-category-image" alt="">
+            <div>
+                <h3>Трубы профильные</h3>
+                <p>Скидка</p>
+            </div>
+        </a>
+    </div>
+</div>
+{% endblock %}
+{% block category %}
+<div class="flex flex-wrap flex-between main-content-container">
+    <a href="#" class="main-content-category">
+        <img src="" class="main-content-category-image" alt="">
+        <div>
+            <h3>Арматура</h3>
+            <p>Черный</p>
+        </div>
+    </a>
+</div>
+{% endblock %}
+{% block htmlblock %}
+{% for item in products %}
+    {% if url == item.slug %}
+        {{item.page_html|safe}}
+    {% endif %}
+{% endfor %}
+{% endblock %}
+{% block seoblock %}
+{% for item in products %}
+    {% if url == item.slug %}
+        {{item.text}}
+    {% endif %}
+{% endfor %}
+{% endblock %}
+{% block absoluteSocial %}
+<a href="https://wa.me/77711714427" class="animate1"><i class="fab fa-whatsapp"></i></a>
+{% endblock %}
+                        
+
+
+                                        

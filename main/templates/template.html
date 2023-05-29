@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}{% endblock %}
+    {% load static %}
+    {% block metadescription %}{% endblock %}
+    <link rel="stylesheet" href="{% static 'css/App.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+</head>
+<body>
+    <div class="desc flex flex-start">
+        <div class="left-navbar">
+            <div class="logo">
+                {% block logo %}{% endblock %}
+            </div>
+            <nav class="navigation">
+                {% block leftbarmenu %}{% endblock %}
+            </nav>
+        </div>
+        <div class="content">
+            <header>
+                <div class="container-fluid">
+                    <div class="flex content-flex">
+                        <div class="col-md-6">
+                            <div class="content-navigation">
+                                <ul>
+                                    {% block headmenu %}{% endblock %}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="address">
+                                <p>{% block address %}{% endblock %}</p>
+                                <ul>
+                                    <li>{% block email %}{% endblock %}</li>
+                                    <li><i class="far fa-clock"></i> {% block work_time %}{% endblock %}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="phones">
+                                {% block phones %}{% endblock %}
+                                <p><i class="fas fa-chevron-down"></i></p>
+                                <div class="phones-dropdown">
+                                    <ul>
+                                        {% block phones_all %}{% endblock %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="fixed-after">
+                <div class="flex flex-between ">
+                    <div class="col-md-5 flex flex-column">
+                        {% block companyname %}{% endblock %}
+                    </div>
+                    <div class="col-md-5 flex flex-wrap align-content flex-end">
+                        <button type="submit" class="btn btn-primary">Позвонить</button>
+                        <a href="#"><span class="btn btn-secondary">Открыть прайс</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="main-body">
+                <div class="main-content">
+                    {% block promocategory %}{% endblock %}
+                    {% block category %}{% endblock %}
+                    {% block htmlblock %}{% endblock %}
+                    <div class="seo-block">
+                        <p>{% block seoblock %}{% endblock %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="absoluteSocial">
+        <div>{% block absoluteSocial %}{% endblock %}</div>
+        <div><a href="" class="animate2" data-bs-toggle="modal" data-bs-target="#exampleModal2"><i class="far fa-envelope"></i></a></div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Выберите город</h5>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+                <span class="sr-only">Close</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li><a href="">Актау</a></li>
+                    <li><a href="">Актобе</a></li>
+                    <li><a href="">Алматы</a></li>
+                    <li><a href="">Атырау</a></li>
+                    <li><a href="">Нур-Султан</a></li>
+                    <li><a href="">Алматы</a></li>
+                    <li><a href="">Алматы</a></li>
+                    <li><a href="">Алматы</a></li>
+                 </ul>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Обратный звонок</h5>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+                <span class="sr-only">Close</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <input name="last-name" placeholder="Имя" type="text">
+                        <input name="phone" placeholder="Телефон" type="text">
+                        <button type="submit" class="btn btn-primary">отправить</button>
+                    </div>
+                    <p>или</p>
+                    <a href="tel:+78000040480"><i class="fas fa-phone"></i> +7 800 004-04-80 </a>
+                    <p><small>бесплатно с мобильного телефона</small></p>
+                </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- Modal 3 -->
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Обратный звонок</h5>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+                <span class="sr-only">Close</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <input name="last-name" placeholder="Имя" type="text">
+                        <input name="phone" placeholder="Телефон" type="text">
+                        <button type="submit" class="btn btn-primary">отправить</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
