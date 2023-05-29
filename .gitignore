@@ -1,0 +1,5 @@
+/trash/*.json
+/uploads
+*.ini
+passenger_wsgi.py
+sitemap_metallopt.py
